@@ -1,0 +1,38 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Micropost Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+<div class="center jumbotron"><div class="accordion" id="accordion-4">
+<p>
+  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    あなたの一曲を教えてください。
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    ForAllPeopleは、ユーザーの好きな音楽を共有できるWebサービスです。
+    <br>是非登録して、あなたの好きな音楽を教えてください！
+  </div>
+</div>
+</div>
+
+  <h2>
+  </h2>
+  <%= link_to "会員登録", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+<% end %>

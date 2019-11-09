@@ -1,0 +1,25 @@
+<%= form_for(@micropost) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="text">
+    <%= f.text_field :song, placeholder: "曲名" %>
+  </div>
+  <div class="text">
+    <%= f.text_field :album, placeholder: "アルバム名" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "関連付いた思い出" %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+  <span class="picture">
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+<% end %>
+
+<script type="text/javascript">
+  $('#micropost_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>
