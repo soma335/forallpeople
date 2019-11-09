@@ -1,5 +1,11 @@
 <h1>User#account_activation</h1>
 
+<p><%= @greeting %>様</p>
+
 <p>
-  <%= @greeting %>, find me in app/views/user_mailer/account_activation.html.erb
+まだユーザ登録は完了していません。
+以下のURLに1時間以内にアクセスして、認証を完了させてください。
 </p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>
