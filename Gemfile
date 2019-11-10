@@ -18,6 +18,7 @@ gem 'jbuilder',                '2.7.0'
 gem 'devise'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'dotenv-rails'
 
 group :development do
 gem 'letter_opener_web'
