@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     if @user.save 
       # Sucess
       @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = "認証メールをお送りいたしました"
       redirect_to root_url
     else
       # Failure
