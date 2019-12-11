@@ -34,6 +34,10 @@ textarea {
 
 /* typography */
 
+.header{
+  background: -webkit-linear-gradient(-180deg, rgb(0, 154, 151), rgb(52, 99, 139));
+  background: linear-gradient(-180deg, rgb(0, 154, 151), rgb(52, 99, 139));
+}
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -66,7 +70,6 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: red;
-  text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
@@ -299,3 +302,23 @@ span.picture {
     border: 0;
   }
 }
+/* preview*/
+.dic{
+  max-width: 100%;
+	height: auto;
+  width: 440px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+.slick-dots {
+        position: absolute !important;
+        bottom: 20px !important;
+        li {
+          font-size: 20px !important;
+          button:before {
+            content: "●" !important;
+            font-size: 14px !important;
+            color: rgb(60, 60, 60) !important;
+          }
+        }
+      }

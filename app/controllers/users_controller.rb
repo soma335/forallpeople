@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    @like = Like.new
   end
 
   def new
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save 
       # Sucess
-      @user.send_activation_email
+      NotificationMailer.send_confirm_to_user(@user).deliver
       flash[:info] = "認証メールをお送りいたしました"
       redirect_to root_url
     else
@@ -67,7 +68,6 @@ class UsersController < ApplicationController
 
   private
 
-  private
 
     def user_params
       params.require(:user).permit(:name, :email, :password,

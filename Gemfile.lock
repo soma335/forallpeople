@@ -41,6 +41,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    after_commit_action (1.1.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     ansi (1.5.0)
     arel (8.0.0)
     autoprefixer-rails (9.7.1)
@@ -73,6 +76,10 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
+    counter_culture (1.12.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      after_commit_action (~> 1.0)
     crass (1.0.5)
     debug_inspector (0.0.3)
     devise (4.7.1)
@@ -193,7 +200,7 @@ GEM
       fog-core (>= 1.45, <= 2.1.0)
       fog-json (>= 1.0)
       ipaddress (>= 0.8)
-    fog-ovirt (1.2.1)
+    fog-ovirt (1.2.2)
       fog-core
       fog-json
       fog-xml
@@ -451,6 +458,7 @@ DEPENDENCIES
   byebug (= 9.0.6)
   carrierwave (= 1.2.2)
   coffee-rails (= 4.2.2)
+  counter_culture (~> 1.8)
   devise
   dotenv-rails
   faker (= 1.7.3)
@@ -461,6 +469,7 @@ DEPENDENCIES
   hirb-unicode
   jbuilder (= 2.7.0)
   jquery-rails (= 4.3.1)
+  letter_opener
   letter_opener_web
   listen (= 3.1.5)
   mini_magick (= 4.7.0)

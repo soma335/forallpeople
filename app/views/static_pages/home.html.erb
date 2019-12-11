@@ -17,10 +17,29 @@
     </div>
   </div>
 <% else %>
+<div class="dic">
+  <ul class="slider">
+    <li>
+        <%= image_tag 'hc.png', class: 'entity-img' %>
+    </li>
+    <li>
+        <%= image_tag 'up.png', class: 'entity-img' %>
+    </li>
+    <li>
+        <%= image_tag 'ging.png', class: 'entity-img' %>
+    </li>
+  </ul>
+</div>
+<h1>
+  あなたの思い出の一曲は何ですか？
+</h1>
+<h2>
+  あなたの一曲と、それに紐づいた記憶が誰かの脳内に残りますように
+</h2>
 <div class="center jumbotron"><div class="accordion" id="accordion-4">
 <p>
   <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    あなたの一曲を教えてください。
+    ForAllPeopleとは
   </button>
 </p>
 <div class="collapse" id="collapseExample">
@@ -28,22 +47,9 @@
     ForAllPeopleは、ユーザーの好きな音楽を共有できるWebサービスです。
     <br>是非登録して、あなたの好きな音楽を教えてください！
   </div>
-</div>
-<p>
-  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    サンプル
-  </button>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    ForAllPeopleは、ユーザーの好きな音楽を共有できるWebサービスです。
-    <br>是非登録して、あなたの好きな音楽を教えてください！
-  </div>
-</div>
 </div>
 
-  <h2>
-  </h2>
+</div>
   <%= link_to "会員登録", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
 <% end %>

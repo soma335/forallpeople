@@ -19,6 +19,7 @@ gem 'devise'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'dotenv-rails'
+gem 'counter_culture', '~> 1.8'
 
 group :development do
 gem 'letter_opener_web'
@@ -36,6 +37,7 @@ group :development do
   gem 'listen',                '3.1.5'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
+  bundle installgem "letter_opener"
 end
 
 group :test do
@@ -44,8 +46,6 @@ group :test do
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.14.1'
   gem 'guard-minitest',           '2.4.6'
-  gem 'better_errors'
-  gem 'binding_of_caller'
 end
 
 group :production do

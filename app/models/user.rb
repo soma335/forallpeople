@@ -16,7 +16,8 @@ class User < ApplicationRecord
   has_many :followers,
     through: 'passive_relationships',
      source: 'follower'
-
+  has_many :likes, dependent: :destroy
+  has_many :liked_microposts, through: :likes, source: :micropost
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -81,6 +82,7 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+
   # 試作feedの定義
   # 完全な実装は次章の「ユーザーをフォローする」を参照
   # current_user.feed
@@ -113,6 +115,10 @@ class User < ApplicationRecord
   # 有効化用のメールを送信する
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
+  end
+  
+  def already_liked?(micropost)
+    self.likes.exists?(micropost_id: micropost.id)
   end
 
 
