@@ -20,6 +20,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'dotenv-rails'
 gem 'counter_culture', '~> 1.8'
+gem 'rails_12factor'
 
 group :development do
 gem 'letter_opener_web'
