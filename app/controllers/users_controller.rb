@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     if @user.save 
       # Sucess
       NotificationMailer.send_confirm_to_user(@user).deliver
+      
       flash[:info] = "認証メールをお送りいたしました"
       redirect_to root_url
     else
