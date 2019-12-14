@@ -17,4 +17,5 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   resources :microposts,          only: [:index, :create, :destroy]
   resources :relationships,       only: [:create, :destroy]
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 end
