@@ -23,7 +23,8 @@ gem 'counter_culture', '~> 1.8'
 gem 'rails_12factor'
 gem "railroady"
 gem "rails-erd"
-  gem 'fog-aws'
+gem 'fog-aws'
+
 group :development do
 gem 'letter_opener_web'
 end
