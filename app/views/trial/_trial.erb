@@ -1,0 +1,28 @@
+<% if @micropost.any? %>
+<%= will_paginate @micropost %>
+
+
+
+  <% @micropost.each do |post| %>
+    <div class = tweet>
+      <div class = target>
+      <%= link_to gravatar_for(post.user, size: 50), post.user %>
+      </div>
+      <div class = user>
+        <%= link_to post.user.name, post.user %>
+        <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
+      </div>
+      <div class = song>曲名:  <%= link_to post.song, "https://www.youtube.com/results?search_query=#{post.song}" %></div>
+      <div class = album>アルバム名: <%= link_to post.album, "https://www.youtube.com/results?search_query=#{post.album} full album" %></div>
+      <div class = post>
+      <div class = content>感想:  <%= post.content %></div>
+      </div>
+      <div class = picture><%= image_tag post.picture.url if post.picture? %></div>
+    </div>
+    
+  
+<% end %>
+</tbody>
+</table>
+<%= will_paginate @micropost %>
+<% end %>

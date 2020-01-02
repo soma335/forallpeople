@@ -5,8 +5,9 @@
 
 /* universal */
 
-$gray-medium-light: #eaeaea;
 
+a:link { color: white; }
+a:visited { color: white; }
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -14,7 +15,9 @@ $gray-medium-light: #eaeaea;
 }
 
 body {
+  background-color:black;
   padding-top: 60px;
+  color:white;
 }
 
 section {
@@ -57,7 +60,6 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
 }
 
 p {
@@ -83,7 +85,7 @@ p {
 }
 
 .jumbotron{
-  background-color: grey;
+  background-color: white;
 }
 /* footer */
 
@@ -91,11 +93,6 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #777;
-}
-
-footer a {
-  color: #555;
 }
 
 footer a:hover {
@@ -263,10 +260,6 @@ input {
 .microposts {
   list-style: none;
   padding: 0;
-  li {
-    padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
-  }
   .user {
     margin-top: 5em;
     padding-top: 0;
@@ -324,3 +317,39 @@ span.picture {
           }
         }
       }
+.tweet:before, .tweet:after {
+    height: 3px;
+    width:100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    clip-path: polygon( 0 0, 5% 100%, 10% 0, 15% 100%, 20% 0, 25% 100%, 30% 0, 35% 100%, 40% 0, 45% 100%, 50% 0, 55% 100%, 60% 0, 65% 100%, 70% 0, 75% 100%, 80% 0, 85% 100%, 90% 0, 95% 100%, 100% 0);
+}
+.tweet:before{
+    background:#ddd;
+    top:0;
+    z-index:10;
+}
+.tweet:after{
+    background:inherit;
+    bottom:-3px;
+}
+.tweet{
+    width:100%;         
+    display:  inline-block;   
+    vertical-align:  top;
+    background-color:  #ccc;
+    margin-bottom: 10px;       
+    padding:  10px;           
+    box-sizing: border-box;   
+    background: -webkit-linear-gradient(-180deg, rgb(0, 154, 151), rgb(52, 99, 139));
+    background: linear-gradient(-180deg, rgb(0, 154, 151), rgb(52, 99, 139));
+}
+.jumbotron{
+    background: -webkit-linear-gradient(-180deg, rgb(0, 154, 151), rgb(52, 99, 139));
+    background: linear-gradient(-180deg, rgb(0, 154, 151), rgb(52, 99, 139));
+}
+.post{
+  margin-left: 2.3em;
+	text-indent: 2em;
+}

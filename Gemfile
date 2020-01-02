@@ -21,6 +21,8 @@ gem 'binding_of_caller'
 gem 'dotenv-rails'
 gem 'counter_culture', '~> 1.8'
 gem 'rails_12factor'
+gem "railroady"
+gem "rails-erd"
 
 group :development do
 gem 'letter_opener_web'
