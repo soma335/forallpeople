@@ -8,6 +8,9 @@
 
 a:link { color: white; }
 a:visited { color: white; }
+input {
+color: black;
+}
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;

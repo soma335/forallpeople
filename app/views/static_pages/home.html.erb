@@ -1,17 +1,5 @@
 <% if logged_in? %>
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <%= render 'shared/user_info' %>
-      </section>
-      <section class="stats">
-        <%= render 'shared/stats' %>
-      </section>
-      <section class="micropost_form">
-        <%= render 'shared/micropost_form' %>
-      </section>
-    </aside>
-    <div class="col-md-8">
+
       <h3>投稿一覧</h3>
       <%= render 'shared/feed' %>
     </div>
@@ -31,31 +19,29 @@
       </ul>
     </div>
     <div class="coment">
-    <h1>
-      あなたの思い出の一曲は何ですか？
-    </h1>
-    <h2>
-      あなたの一曲が誰かの一曲になりますように
-    </h2>
+      <h1>
+        あなたの思い出の一曲は何ですか？
+      </h1>
+      <h2>今日のおすすめアーティストは
+      <%= link_to @artist,"https://ja.wikipedia.org/wiki/#{@artist}" %>です</h2>
     </div>
 <div class="center jumbotron"><div class="accordion" id="accordion-4">
+  <p>
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      ForAllPeopleとは
+    </button>
+  </p>
   
-<p>
-  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    ForAllPeopleとは
-  </button>
-</p>
-
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    ForAllPeopleは、ユーザーの好きな音楽を共有できるWebサービスです。
-    <br>是非登録して、あなたの好きな音楽を教えてください！
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      ForAllPeopleは、ユーザーの好きな音楽を共有できるWebサービスです。
+      <br>是非登録して、あなたの好きな音楽を教えてください！
+    </div>
   </div>
-</div>
-
-</div>
-  <%= link_to "会員登録", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+  
+  </div>
+    <%= link_to "会員登録", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
 
   <%= render 'trial/trial' %>
 <% end %>

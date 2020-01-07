@@ -1,16 +1,14 @@
 require 'nokogiri'
-require 'open-uri'
 
-url = 'https://qiita.com/search?q=ruby'
+#ダウンロードしたhtmlファイル
+f = File.open("2014.html")
+doc = Nokogiri::HTML(f)
+f.close()
 
-charset = nil
 
-html = open(url) do |f|
-    charset = f.charset
-    f.read
+ary_1 = []
+
+doc.xpath('//*[@id="mw-content-text"]/div/ul/li').each do |node|
+    ary_1 << node.css('a').inner_text
 end
-
-doc = Nokogiri::HTML.parse(html, nil, charset)
-doc.xpath('//h1[@class="searchResult_itemTitle"]').each do |node|
-  p node.css('a').inner_text
-end
+p ary_1

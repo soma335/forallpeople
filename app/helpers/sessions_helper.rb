@@ -1,4 +1,6 @@
 module SessionsHelper
+    require 'nokogiri'
+  require 'open-uri'
   # 渡されたユーザーでログインする
   def log_in(user)
     session[:user_id] = user.id

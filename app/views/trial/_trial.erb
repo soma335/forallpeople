@@ -13,7 +13,7 @@
         <%= post.created_at.strftime("%Y-%m-%d %H:%M") %>
       </div>
       <div class = song>曲名:  <%= link_to post.song, "https://www.youtube.com/results?search_query=#{post.song}" %></div>
-      <div class = album>アルバム名: <%= link_to post.album, "https://www.youtube.com/results?search_query=#{post.album} full album" %></div>
+      <div class = artist>アーティスト名: <%= link_to post.artist, "https://www.youtube.com/results?search_query=#{post.artist}" %></div>
       <div class = post>
       <div class = content>感想:  <%= post.content %></div>
       </div>

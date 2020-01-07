@@ -25,9 +25,6 @@ gem "railroady"
 gem "rails-erd"
 gem 'fog-aws'
 
-group :development do
-gem 'letter_opener_web'
-end
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
@@ -42,6 +39,7 @@ group :development do
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
   gem "letter_opener"
+  gem 'letter_opener_web'
 end
 
 group :test do

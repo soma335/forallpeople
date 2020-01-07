@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-
+  include StaticPagesHelper
   def help
   end
 
@@ -16,6 +16,7 @@ class StaticPagesController < ApplicationController
     else
       @micropost = Micropost.paginate(page: params[:page], per_page: 20)
       @user = User.all
+      @artist = recommend
     end
   end
 end
