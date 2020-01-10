@@ -1,0 +1,9 @@
+<% if like = Like.find_by(user_id: current_user.id, micropost_id: micropost.id) %>
+    <%= link_to micropost_like_path(micropost_id: like.micropost.id,id: like.id), method: :delete, remote: :true, :class => "clicked", :style => "margin-left:1em" do %>
+        <p class="action">👏<%= micropost.likes.count %></p>
+    <% end %>
+<% else %>
+    <%= link_to micropost_likes_path(micropost.id), method: :post, remote: :true, :style => "margin-left:1em" do %>
+        <p class="action">👏<%= micropost.likes.count %></p>
+    <% end %>
+<% end %><!-- Like -->

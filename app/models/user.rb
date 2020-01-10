@@ -16,20 +16,20 @@ class User < ApplicationRecord
   has_many :followers,
     through: 'passive_relationships',
      source: 'follower'
-  has_many :likes, dependent: :destroy
+  has_many :likes
   has_many :liked_microposts, through: :likes, source: :micropost
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save   :downcase_email
   before_create :create_activation_digest
-
-  validates :name,  presence: true, length: { maximum:  50 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
+  before_save :downcase_email, unless: :uid?
+  validates :name, presence: true, unless: :uid?, length: { maximum: 50 }
+  validates :email, presence: true, unless: :uid?, length: { maximum: 255 },
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
-  has_secure_password
+  has_secure_password validations: false
+
   validates :password, presence: true,
     length: { minimum: 6 }, allow_nil: true
+    
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -118,6 +118,18 @@ class User < ApplicationRecord
   
   def already_liked?(micropost)
     self.likes.exists?(micropost_id: micropost.id)
+  end
+  
+  def self.find_or_create_from_auth(auth)
+    provider = auth[:provider]
+    uid = auth[:uid]
+    name = auth[:info][:name]
+    image = auth[:info][:image]
+
+    self.find_or_create_by(provider: provider, uid: uid) do |user|
+      user.name = name
+      user.image_url = image
+    end
   end
   
   private

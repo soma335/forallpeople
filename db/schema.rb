@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200107051852) do
+ActiveRecord::Schema.define(version: 20200108154815) do
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "micropost_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
@@ -19,8 +26,8 @@ ActiveRecord::Schema.define(version: 20200107051852) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
+    t.string "name"
     t.string "song"
-    t.integer "likes_count", default: 0, null: false
     t.string "artist"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
@@ -47,6 +54,9 @@ ActiveRecord::Schema.define(version: 20200107051852) do
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
+    t.string "provider"
+    t.string "uid"
+    t.string "image_url"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

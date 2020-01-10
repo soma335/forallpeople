@@ -1,9 +1,8 @@
-<% unless current_user?(@user) %>
+
   <div id="follow_form">
-  <% if current_user.following?(@user) %>
-    <%= render 'unfollow' %>
+  <% if current_user.following?(micropost.user) %>
+    <%= render :partial => 'users/unfollow', :locals => { micropost: micropost } %>
   <% else %>
-    <%= render 'follow' %>
+    <%= render :partial => 'users/follow', :locals => { micropost: micropost }  %>
   <% end %>
   </div>
-<% end %>

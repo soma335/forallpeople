@@ -249,6 +249,10 @@ input {
   margin-left: 0;
 }
 
+textarea#micropost_content {
+  color:black;
+}
+
 .users {
   list-style: none;
   margin: 0;
@@ -269,7 +273,6 @@ input {
   }
   .content {
     display: block;
-    margin-left: 60px;
     img {
       display: block;
       padding: 5px 0;

@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: :destroy
+  skip_before_action :verify_authenticity_token
   
   def new
     @micropost = current_user.microposts.new
@@ -28,7 +28,7 @@ class MicropostsController < ApplicationController
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content, :picture, :song, :album, :like)
+      params.require(:micropost).permit(:content, :picture, :song, :artist, :like)
     end
 
     

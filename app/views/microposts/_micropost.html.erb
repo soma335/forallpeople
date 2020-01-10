@@ -5,15 +5,28 @@
     </div>
     <div class = user>
       <%= link_to micropost.user.name, micropost.user %>
-      <%= micropost.created_at.strftime("%Y-%m-%d %H:%M") %>
+      <%= micropost.created_at.strftime("%Y/%m/%d %H:%M") %>
     </div>
     <div class = song>曲名:  <%= link_to micropost.song, "https://www.youtube.com/results?search_query=#{micropost.song}" %></div>
     <div class = artist>アルバム名: <%= link_to micropost.artist, "https://www.youtube.com/results?search_query=#{micropost.artist}" %></div>
     <div class = content>感想:  <%= micropost.content %></div>
     <div class = picture><%= image_tag micropost.picture.url if micropost.picture? %></div>
+    <div id="likes_buttons_<%= micropost.id %>">
+    <% if current_user.present? %>
+				<%= render :partial => "microposts/action", :locals => { micropost: micropost } %>
+		</div>
+		<% else %><!-- authorized -->
+				<%= link_to micropost_likes_path(micropost.id)  ,method: :post, :style => "margin-left:1em" do %>
+				  <p class="action">👆<%= micropost.likes.count %></p>
+				<% end %>
+				<%= link_to micropost_likes_path(micropost.id), method: :post, :style => "margin-left:1em" do %>
+					<p class="action">📂<%= micropost.likes.count %></p>
+		    <% end %>
+		<% end %><!-- guest -->
+		<%= render :partial => 'users/follow_form', :locals => { micropost: micropost }  if logged_in? %>
     <% if current_user?(micropost.user) %>
-      <%= link_to "delete", micropost, method: :delete,
-                                       data: { confirm: "削除してよろしいですか?" } %>
+      <%= link_to "削除", micropost, method: :delete,
+                                         data: { confirm: "削除してよろしいですか?" } %>
     <% end %>
       </div>
   </span>

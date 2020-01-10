@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root   'static_pages#home'
+  get 'auth/:provider/callback', to: 'sessions#create'
   get    '/help',    to: 'static_pages#help'
   get    '/about',   to: 'static_pages#about'
   get    '/contact', to: 'static_pages#contact'
@@ -13,11 +14,12 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  resources :microposts do
+    resources :likes, only: [:create, :destroy]
+  end
   resources :users
   resources :account_activations, only: [:edit]
-    resources :likes, only: [:create, :destroy]
   resources :microposts,          only: [:index,:new, :create, :destroy]
   resources :relationships,       only: [:create, :destroy]
   resources :password_resets,     only: [:new, :create, :edit, :update]
-    resources :recommends, only: [:new]
 end

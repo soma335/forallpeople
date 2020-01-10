@@ -24,7 +24,10 @@ gem 'rails_12factor'
 gem "railroady"
 gem "rails-erd"
 gem 'fog-aws'
-
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
