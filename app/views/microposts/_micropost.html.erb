@@ -23,7 +23,6 @@
 					<p class="action">📂<%= micropost.likes.count %></p>
 		    <% end %>
 		<% end %><!-- guest -->
-		<%= render :partial => 'users/follow_form', :locals => { micropost: micropost }  if logged_in? %>
     <% if current_user?(micropost.user) %>
       <%= link_to "削除", micropost, method: :delete,
                                          data: { confirm: "削除してよろしいですか?" } %>
