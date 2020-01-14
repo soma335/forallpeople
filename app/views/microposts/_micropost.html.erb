@@ -19,10 +19,8 @@
 				<%= link_to micropost_likes_path(micropost.id)  ,method: :post, :style => "margin-left:1em" do %>
 				  <p class="action">👆<%= micropost.likes.count %></p>
 				<% end %>
-				<%= link_to micropost_likes_path(micropost.id), method: :post, :style => "margin-left:1em" do %>
-					<p class="action">📂<%= micropost.likes.count %></p>
+		<%= render 'users/follow_form', :locals => { micropost: micropost }  if logged_in? %>
 		    <% end %>
-		<% end %><!-- guest -->
     <% if current_user?(micropost.user) %>
       <%= link_to "削除", micropost, method: :delete,
                                          data: { confirm: "削除してよろしいですか?" } %>
